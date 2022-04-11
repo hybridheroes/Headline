@@ -8,7 +8,15 @@
                             {{img_url feature_image size="l"}} 960w,
                             {{img_url feature_image size="xl"}} 1200w,
                             {{img_url feature_image size="xxl"}} 2000w"
-                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    {{#match has_large_post "!=" false}}
+                        {{#has index="0"}} 
+                            sizes="(max-width: 1200px) 100vw, 1200px"
+                        {{else}}
+                            sizes="(max-width: 768px) 100px, 160px"
+                        {{/has}}
+                    {{else}}
+                        sizes="(max-width: 768px) 100px, 160px"
+                    {{/match}}
                     src="{{img_url feature_image size="m"}}"
                     alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
                 >
