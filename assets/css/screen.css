@@ -1,4 +1,4 @@
-@import "@tryghost/shared-theme-assets/assets/css/screen.css";
+@import "@tryghost/shared-theme-assets/assets/css/v1/screen.css";
 @import "fonts.css";
 
 :root {
@@ -11,7 +11,6 @@
 
 figcaption {
     font-size: 1.3rem;
-    text-align: right;
 }
 
 .has-full-image figcaption {
@@ -34,12 +33,17 @@ body:not(.is-head-stacked) .gh-head-inner {
     letter-spacing: -0.006em;
 }
 
-body:not(.is-head-transparent) .gh-head-logo img + img {
+body:not(.is-head-transparent):not(.is-head-brand):not(.is-head-dark) .gh-head-logo img + img {
     display: none;
 }
 
+body:is(.is-head-transparent, .is-head-brand, .is-head-dark) .gh-head-logo img + img {
+    opacity: 1;
+}
+
 .is-head-transparent .gh-head-logo img:first-of-type:not(:only-child) {
-    display: none;
+    display: block;
+    opacity: 0;
 }
 
 /* Styles specific to grid style sections */
@@ -594,6 +598,7 @@ body:not(.home-template) .gh-topic-grid .gh-card {
 .gh-subscribe-title {
     font-size: 4.4rem;
     color: var(--color-white);
+    white-space: break-spaces;
 }
 
 .has-serif-title .gh-subscribe-title {
@@ -603,6 +608,7 @@ body:not(.home-template) .gh-topic-grid .gh-card {
 .gh-subscribe-description {
     margin-top: 16px;
     font-size: 2rem;
+    white-space: break-spaces;
 }
 
 .has-serif-body .gh-subscribe-description {
